@@ -43,6 +43,7 @@ test_requirements = [
     'stripe',
     'connexion',
     'psutil',
+    'mockito',
 ]
 
 extras = {'test': test_requirements}

@@ -8,7 +8,7 @@ from subhub.cfg import CFG
 
 def get_secret(secret_id):
     """Fetch secret via boto3."""
-    client = boto3.client(service_name="secretsmanager")
+    client = boto3.client(service_name="secretsmanager", region_name="us-west-2")
     get_secret_value_response = client.get_secret_value(SecretId=secret_id)
 
     if "SecretString" in get_secret_value_response:
