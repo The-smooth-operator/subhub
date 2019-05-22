@@ -412,6 +412,25 @@ def task_creds():
         ],
     }
 
+def task_domain():
+    '''
+    domains: create, delete
+    '''
+    for svc in SVCS:
+        servicepath = f'services/{svc}'
+        for action in ('create', 'delete'):
+            yield {
+                'name': f'{svc}:{action}',
+                'task_dep': [
+                    'check',
+                    'creds',
+                    'npm',
+                ],
+                'actions': [
+                    f'cd {servicepath} && env {envs()} {SLS} {action}_domain --stage {CFG.APP_DEPENV} -v',
+                ],
+            }
+
 def task_deploy():
     '''
     run serverless deploy -v for every service
