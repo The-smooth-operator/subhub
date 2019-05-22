@@ -221,7 +221,7 @@ def check_reqs():
 
 def task_check():
     '''
-    checks: noroot, python3.7, awscli, json, yaml, black, reqs
+    checks: noroot, python3.7, yarn, awscli, json, yaml, black, reqs
     '''
     yield check_noroot()
     yield gen_prog_check('python3.7')
