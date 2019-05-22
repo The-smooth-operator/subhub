@@ -225,6 +225,7 @@ def task_check():
     '''
     yield check_noroot()
     yield gen_prog_check('python3.7')
+    yield gen_prog_check('yarn')
     if not CFG('TRAVIS', None):
         yield gen_prog_check('awscli', 'aws')
     yield gen_file_check('json', json.load, '**/*.json')
